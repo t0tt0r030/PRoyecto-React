@@ -1,16 +1,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 
 
 //*Componenetes PRopio */
-import Header from './components/Header';
+import Heder from './components/Heder';
 
 
 function App ()
 {
   return(
     <>
-    <Header/>
+    <Heder/>
     </>
   )
 }
