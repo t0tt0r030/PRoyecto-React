@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Menu() {
+function Heder() {
 
     const miMenu = [
         {
@@ -67,7 +67,7 @@ function Menu() {
     );
 }
 
-export default Menu;
+export default Heder;
 
 
 
