@@ -760,7 +760,30 @@ footer {
     transform: translateY(0);
 }
 
-
+/* CARRUCEL */
+.swiper {
+    width: auto;
+    height: auto;
+}
+  
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #444;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.swiper-slide img {
+    display: block;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+  
 
 /* --- Animación Hero --- */
 @keyframes reveal-up {
