@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Registro from './components/Registro';
 import Info from './components/Info';
 import Carousel from './components/Carousel';
+import Footer from './components/Footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,8 +24,11 @@ function App ()
 {
   return(
     <>
-      <Carousel />
+      <Heder />,
+      <Info />,
+      <Footer />
     </>
+    
   )
 }
 export default App;

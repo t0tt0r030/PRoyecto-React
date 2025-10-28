@@ -42,8 +42,6 @@ function Contacto() {
   );
 
   return (
-    <>
-      <Heder />
 
       <main className="contacto-main container my-5">
         <div className="contacto-header text-center mb-5">
@@ -120,11 +118,6 @@ function Contacto() {
         </div>
       </main>
 
-      <footer className="contacto-footer bg-dark text-white text-center py-4 mt-5">
-        <p>&copy; {new Date().getFullYear()} Pastelería Mil Sabores - Todos los derechos reservados.</p>
-        <p className="text-secondary small mb-0">Desarrollado con React, y cariño 🥧</p>
-      </footer>
-    </>
   );
 }
 
