@@ -6,13 +6,16 @@ import Info from './components/Info';
 import Carousel from './components/Carousel';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './style.css';
-import './styles/Login.css';
-import './styles/Info.css';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import './style.css';
+import './styles/Carousel.css';
+import './styles/Login.css';
+import './styles/Info.css';
+
+
 
 
 
@@ -20,7 +23,7 @@ function App ()
 {
   return(
     <>
-    <Carousel/>
+      <Carousel />
     </>
   )
 }

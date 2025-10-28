@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, User } from "lucide-react";
+import Heder from "./Heder";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function Contacto() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,70 +26,8 @@ function Contacto() {
     setSuccessMessage("¡Gracias por tu mensaje! Te responderemos pronto.");
     setErrorMessage("");
     e.target.reset();
+
   };
-
-  const miMenu = [
-    {
-        nombre: "Productos",
-        href: "#productos"
-    },
-    {
-        nombre: "Sobre Nosotros",
-        href: "#sobre-nosotros"
-    },
-    {
-        nombre: "Preguntas",
-        href: "#faq"
-    },
-    {
-        nombre: "Contacto",
-        href: "#contacto"
-    }
-];
-
-  const Navbar = () => (
-    <header>
-            <nav className="navbar">
-                <div className="container">
-                    
-                    <img src={'./imagenes/logo.png'}
-                        alt={`Foto de pasteleria`}
-                        className="rounded-circle img-fluid border border-white border-3"
-                        style={{ maxWidth: '150px' }} />
-
-                
-                    <ul className="nav-links">
-                        {miMenu.map((item, index) => (
-                            <li key={index}> 
-                                <a href={item.href}>{item.nombre}</a>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <div className="nav-controls">
-
-                      
-                        <div className="theme-switcher" aria-label="Cambiar tema" role="button" tabIndex={0}>
-                            <i className="fas fa-sun" aria-hidden="true"></i>
-                            <i className="fas fa-moon" aria-hidden="true"></i>
-                        </div>
-                        
-                      
-                        <div className="hamburger-menu" aria-label="Abrir menú" role="button" tabIndex={0}>
-                            <i className="fas fa-bars" aria-hidden="true"></i>
-                        </div>
-
-                        
-                        <div className="cart-icon-container" id="cart-icon-container" aria-label="Ver carrito" role="button" tabIndex={0}>
-                            <i className="fas fa-shopping-cart"></i>
-                            <span id="cart-count">0</span>
-                        </div>
-                    </div>
-
-                </div>
-            </nav>
-        </header>
-  );
 
   const InfoCard = ({ icon, title, children }) => (
     <div className="contacto-info-card">
@@ -103,7 +43,7 @@ function Contacto() {
 
   return (
     <>
-      <Navbar />
+      <Heder />
 
       <main className="contacto-main container my-5">
         <div className="contacto-header text-center mb-5">

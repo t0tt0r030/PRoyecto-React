@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { ShoppingCart } from "lucide-react";
 
 function Heder() {
 
@@ -18,11 +18,12 @@ function Heder() {
         },
         {
             nombre: "Contacto",
-            href: "#contacto"
+            href: "#Info"
         }
     ];
 
     return (
+
         <header>
             <nav className="navbar">
                 <div className="container">
@@ -48,6 +49,13 @@ function Heder() {
                             <i className="fas fa-sun" aria-hidden="true"></i>
                             <i className="fas fa-moon" aria-hidden="true"></i>
                         </div>
+
+                        <div class="nav-controls">
+                            <div class="auth-buttons"> 
+                                <a href="/register" class="auth-btn btn-register">Registro</a>
+                                <a href="/login" class="auth-btn btn-login">Login</a>
+                            </div>
+                        </div>
                         
                       
                         <div className="hamburger-menu" aria-label="Abrir menú" role="button" tabIndex={0}>
@@ -56,14 +64,15 @@ function Heder() {
 
                         
                         <div className="cart-icon-container" id="cart-icon-container" aria-label="Ver carrito" role="button" tabIndex={0}>
-                            <i className="fas fa-shopping-cart"></i>
-                            <span id="cart-count">0</span>
+                            <i className="rounded-circle cart-icon"><ShoppingCart size={18} /></i>
+                 
                         </div>
                     </div>
 
                 </div>
             </nav>
         </header>
+
     );
 }
 
