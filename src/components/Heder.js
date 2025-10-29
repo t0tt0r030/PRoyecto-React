@@ -10,7 +10,7 @@ function Heder() {
         },
         {
             nombre: "Sobre Nosotros",
-            href: "#sobre-nosotros"
+            href: "#sobre-nosotros" // Este enlace apunta al ID
         },
         {
             nombre: "Preguntas",

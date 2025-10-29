@@ -1,0 +1,34 @@
+.bg-light-pink {
+    background-color: #ffe8f0; 
+}
+
+.text-primary-custom {
+    color: #e85d95; /* Color de marca para los iconos */
+}
+
+.sobre-nosotros-container {
+    min-height: 80vh; 
+}
+
+.titulo-historia {
+    font-family: 'Dancing Script', cursive;  
+    font-size: 5rem;                  
+    color: #e85d95;                     
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.parrafo-historia {
+    font-family: 'Arial', sans-serif; 
+    font-size: 1.2rem;                
+    color: #4B4B4B;                   
+    line-height: 1.7;                 
+}
+
+.subtitulo-seccion {
+    font-family: 'Arial', sans-serif; 
+    font-size: 1.8rem;                
+    color: #333;                      
+    display: flex; /* Añadido para alinear el icono y el texto */
+    align-items: center;
+    justify-content: center;
+}
