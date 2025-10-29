@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Registro from "../components/Registro";
 
 function Login(){
 
@@ -8,6 +9,10 @@ function Login(){
     if (!isOpen) {
         return null;
     }
+    
+    const [openModal, setOpenModal] = useState(null);
+    
+    const closeModal = () => setOpenModal(null);
     
     const handleClose = () => {
             setIsOpen(false);
@@ -60,9 +65,12 @@ function Login(){
                   </button>
                 </form>
                 <p className="switch-auth">
-                  ¿No tienes cuenta? <a href="#" id="show-register-link">Regístrate</a>
+                  ¿No tienes cuenta? 
+                  <button onClick={() => setOpenModal('registro')} className="auth-btn btn-register">Registro </button>
                 </p>
               </div>
+ 
+              {openModal === 'registro' && <Registro onClose={closeModal} />}
             </div>
           );
     }

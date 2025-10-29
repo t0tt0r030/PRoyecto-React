@@ -1,7 +1,18 @@
-import React from 'react';
-import { ShoppingCart } from "lucide-react";
+import React, {useState, useEffect }from 'react';
+import Login from '../components/Login';
+import Registro from '../components/Registro';
+
+
+import { ShoppingCart, Sun, Moon } from "lucide-react";
+
+import '../style.css';
 
 function Heder() {
+
+    const [openModal, setOpenModal] = useState(null);
+
+    const closeModal = () => setOpenModal(null);
+
 
     const miMenu = [
         {
@@ -14,13 +25,33 @@ function Heder() {
         },
         {
             nombre: "Preguntas",
-            href: "#faq"
+            href: "#Faq"
         },
         {
             nombre: "Contacto",
             href: "#Info"
         }
     ];
+
+    const [isDarkMode, setIsDarkMode] = useState(
+        localStorage.getItem('theme') === 'dark'
+    );
+
+    useEffect(() => {
+        const body = document.body;
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+        }
+    }, [isDarkMode]); 
+
+    
+    const toggleTheme = () => {
+        setIsDarkMode(prevMode => !prevMode);
+    };
 
     return (
 
@@ -44,16 +75,25 @@ function Heder() {
 
                     <div className="nav-controls">
 
-                      
-                        <div className="theme-switcher" aria-label="Cambiar tema" role="button" tabIndex={0}>
-                            <i className="fas fa-sun" aria-hidden="true"></i>
-                            <i className="fas fa-moon" aria-hidden="true"></i>
-                        </div>
 
-                        <div class="nav-controls">
-                            <div class="auth-buttons"> 
-                                <a href="/register" class="auth-btn btn-register">Registro</a>
-                                <a href="/login" class="auth-btn btn-login">Login</a>
+                        
+                    <div 
+                    className="theme-switcher" 
+                    id="theme-switcher" 
+                    aria-label="Cambiar tema" 
+                    role="button" 
+                    tabIndex={0} 
+                    onClick={toggleTheme} 
+                    >
+                    <i className="sun-icon"><Sun size={18} /></i>
+                    <i className="moon-icon"><Moon size={18} /></i>
+                    </div>
+
+                        <div className="nav-controls">
+                            <div className="auth-buttons"> 
+                                <button onClick={() => setOpenModal('registro')} className="auth-btn btn-register">Registro </button>
+
+                                <button onClick={() => setOpenModal('login')} className="auth-btn btn-login">Login</button>
                             </div>
                         </div>
                         
@@ -68,7 +108,8 @@ function Heder() {
                  
                         </div>
                     </div>
-
+                    {openModal === 'login' && <Login onClose={closeModal} />}     
+                    {openModal === 'registro' && <Registro onClose={closeModal} />}
                 </div>
             </nav>
         </header>

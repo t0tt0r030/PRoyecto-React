@@ -5,6 +5,7 @@ import Registro from './components/Registro';
 import Info from './components/Info';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
+import Faq from './components/Faq';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,7 +26,9 @@ function App ()
   return(
     <>
       <Heder />,
+      <Carousel />,
       <Info />,
+      <Faq />,
       <Footer />
     </>
     

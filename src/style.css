@@ -5,7 +5,7 @@
     --accent-color: #fbcd78;   
     --link-color: #e3bae0;     
     --font-heading: 'Pacifico', cursive;
-    --font-body: 'Roboto', sans-serif;
+    --font-body: 'Lato', sans-serif;
 
     /* 1. Consistencia con Variables de Espaciado */
     --spacing-xs: 4px;
@@ -14,12 +14,14 @@
     --spacing-lg: 25px;
     --spacing-xl: 40px;
 
-    /* Light Mode */
-    --bg-color: #FFF5E1;
-    --bg-secondary-color: #FFC0CB;
-    --card-bg-color: #ffffff;
+
+    --bg-color: #FFF5E1;          
+    --bg-secondary-color: #FFC0CB; 
+    --card-bg-color: #ffffff;      
+    --header-bg-color: #ffffff;  
     --text-color: #333333;
     --text-color-light: #666666;
+    --color-chocolate: #8B4513;  
     --border-color: #e0d7e4;
     --shadow-color: rgba(0,0,0,0.1);
 }
@@ -33,6 +35,8 @@ body.dark-mode {
     --border-color: #495057;
     --shadow-color: rgba(0,0,0,0.25);
 }
+
+
 
 * {
     margin: 0;
@@ -51,6 +55,8 @@ body {
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+
 
 .container {
     max-width: 1100px;
@@ -210,33 +216,23 @@ body {
     gap: var(--spacing-lg);
 }
 
-.theme-switcher {
-    cursor: pointer;
-    font-size: 1.5rem;
-    position: relative;
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--text-color);
-}
+/* ... tu CSS anterior ... */
 
-.theme-switcher i {
-    position: absolute;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.theme-switcher .fa-sun {
+/* Antes usabas .fa-sun, ahora usa .sun-icon */
+.theme-switcher .sun-icon {
     transform: scale(1);
     opacity: 1;
 }
 
-.theme-switcher .fa-moon {
+/* Antes usabas .fa-moon, ahora usa .moon-icon */
+.theme-switcher .moon-icon {
     transform: scale(0);
     opacity: 0;
 }
 
-body.dark-mode .theme-switcher .fa-sun { transform: scale(0); opacity: 0; }
-body.dark-mode .theme-switcher .fa-moon { transform: scale(1); opacity: 1; }
-
+/* Aplicación del Dark Mode */
+body.dark-mode .theme-switcher .sun-icon { transform: scale(0); opacity: 0; }
+body.dark-mode .theme-switcher .moon-icon { transform: scale(1); opacity: 1; }
 /* --- Sección Hero --- */
 #hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1920x1080.png?text=Productos+de+Limpieza');
@@ -322,11 +318,26 @@ section + section {
 
 section h2 {
     text-align: center;
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: 2.8rem;
     color: var(--primary-color);
     margin-bottom: 40px;
 }
+
+/* 4. Aplicar Pacifico a los Encabezados */
+section h2, .hero-content h1 {
+    font-family: var(--font-heading); /* Pacifico */
+}
+
+/* Asegura que el H2 dentro de la sección FAQ use Pacifico, con alta prioridad */
+#faq h2 {
+    font-family: var(--font-heading) !important; 
+}
+/* Asegura que todos los textos generales usen Lato */
+#faq p, #faq h4 {
+    font-family: var(--font-body); /* 'Lato', sans-serif */
+}
+
 
 .bg-light {
     background-color: var(--bg-secondary-color);
@@ -839,6 +850,55 @@ footer {
     width: auto;
     height: auto;
     object-fit: cover;
+}
+
+/* FAQ */
+
+
+#faq .container {
+    max-width: 800px; 
+}
+/* 1. Limpia el padding del párrafo, y usa un contenedor interno para el espacio */
+.faq-answer p {
+    /* Elimina el padding-top de aquí: */
+    /* padding-top: 15px; */ 
+    margin: 0; /* Asegurar que no hay márgenes */
+    padding-inline: 0;
+}
+
+/* 2. Añade un div interno dentro del <p> llamado .faq-content */
+/* (o mejor, aplica el padding a la respuesta cuando está activa) */
+.faq-item.active .faq-answer {
+    grid-template-rows: 1fr;
+    /* Añade el padding al contenedor que se está abriendo */
+    padding-bottom: 15px; /* O el espaciado que necesites */
+    padding-top: 15px;
+}
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+/* En tu CSS, en la sección FAQ */
+.faq-question {
+    display: flex; /* Mantiene los elementos alineados y ajusta el ancho */
+    justify-content: space-between;
+    align-items: center;
+
+    /* 💡 El cursor solo debe aparecer donde está la pregunta visible */
+    cursor: pointer; 
+
+    /* Asegura que no haya padding invisible que se extienda demasiado */
+    padding: 15px 0; 
+
+}
+/* Aseguramos que el H2 del FAQ use la fuente Pacifico */
+#faq h2 {
+    font-family: var(--font-heading) !important; /* Pacifico */
+}
+
+/* Aseguramos que el cuerpo de la respuesta use Lato */
+#faq .faq-answer p {
+    font-family: var(--font-body); /* Lato */
 }
   
 
