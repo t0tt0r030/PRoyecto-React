@@ -3,14 +3,14 @@ import Registro from "../components/Registro";
 
 function Login(){
 
-    const [isOpen, setIsOpen] = useState(true); // Asume que está abierto por defecto
+    const [isOpen, setIsOpen] = useState(true);
     const [error, setError] = useState("");
+    const [openModal, setOpenModal] = useState(null);
 
+    
     if (!isOpen) {
         return null;
     }
-    
-    const [openModal, setOpenModal] = useState(null);
     
     const closeModal = () => setOpenModal(null);
     
@@ -60,13 +60,20 @@ function Login(){
                   
                   <p id="login-error" className="error-message">{error}</p>
                   
-                  <button type="submit" className="cta-button full-width">
+                  <button type="submit" className="auth-btn btn-login">
                     Entrar
                   </button>
                 </form>
                 <p className="switch-auth">
                   ¿No tienes cuenta? 
-                  <button onClick={() => setOpenModal('registro')} className="auth-btn btn-register">Registro </button>
+                    <button 
+                    type="button" 
+                    onClick={() => setOpenModal('registro')} 
+                    className="login-link" 
+                    id="show-login-link"
+                  >
+                    Regístrate
+                  </button>                
                 </p>
               </div>
  

@@ -1,5 +1,4 @@
 import React from "react";
-import Heder from "./Heder";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -7,9 +6,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../styles/Carousel.css';
-
-
-
 
 function Carousel() {
     return (

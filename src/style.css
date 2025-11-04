@@ -318,24 +318,14 @@ section + section {
 
 section h2 {
     text-align: center;
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 2.8rem;
     color: var(--primary-color);
     margin-bottom: 40px;
 }
 
-/* 4. Aplicar Pacifico a los Encabezados */
-section h2, .hero-content h1 {
-    font-family: var(--font-heading); /* Pacifico */
-}
-
-/* Asegura que el H2 dentro de la sección FAQ use Pacifico, con alta prioridad */
-#faq h2 {
-    font-family: var(--font-heading) !important; 
-}
-/* Asegura que todos los textos generales usen Lato */
 #faq p, #faq h4 {
-    font-family: var(--font-body); /* 'Lato', sans-serif */
+    font-family: var(--font-body); 
 }
 
 
@@ -892,7 +882,7 @@ footer {
 
 }
 /* Aseguramos que el H2 del FAQ use la fuente Pacifico */
-#faq h2 {
+.faq-h2 {
     font-family: var(--font-heading) !important; /* Pacifico */
 }
 
@@ -901,7 +891,9 @@ footer {
     font-family: var(--font-body); /* Lato */
 }
   
-
+.bold-text {
+    font-weight: bold;
+  }
 /* --- Animación Hero --- */
 @keyframes reveal-up {
     from {
