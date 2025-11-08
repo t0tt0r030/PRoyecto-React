@@ -1,6 +1,5 @@
-// Archivo: Faq.js
 import React from "react";
-import FaqItem from './FaqItem'; // <-- Importa el componente interactivo
+import FaqItem from './FaqItem';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../style.css';
 
@@ -38,6 +37,7 @@ const Faq = () => {
         <section id="faq"> 
             <div className="container">
                <h2> Preguntas Frecuentes</h2>
+
                 <div className="faq-container">
                     {faqData.map(item => (
                         <FaqItem 

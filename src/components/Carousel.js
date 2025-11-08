@@ -1,5 +1,4 @@
 import React from "react";
-import Heder from "./Heder";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -7,9 +6,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../styles/Carousel.css';
-
-
-
 
 function Carousel() {
     return (
@@ -30,19 +26,19 @@ function Carousel() {
             className="mySwiper"
           >
             <SwiperSlide>
-                <img src= "./imagenes/torta1.jpg"/>
+                <img src= "./imagenes/chocolate.jpg"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src= "./imagenes/1.png"/>
+                <img src= "./imagenes/frutas.png"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src= "./imagenes/2.jpg"/>
+                <img src= "./imagenes/manjar.jpg"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src= "./imagenes/3.jpg"/>
+                <img src= "./imagenes/mousse.png"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src= "./imagenes/4.jpg"/>
+                <img src= "./imagenes/vainilla.png"/>
             </SwiperSlide>
           </Swiper>
 

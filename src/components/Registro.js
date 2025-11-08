@@ -1,16 +1,19 @@
 import React, {useState} from "react";
+import Login from "./Login";
 
 function Registro(){
     const [isOpen, setIsOpen] = useState(true); // Asume que está abierto por defecto
     const [error, setError] = useState("");
+    const [openModal, setOpenModal] = useState(null);
     const [success, setSuccess] = useState('');
+
 
     //OPERACIONES MODAL
 
     if (!isOpen) {
         return null;
     }
-
+    const closeModal = () => setOpenModal(null);
     const handleClose = () => {
             setIsOpen(false);
             setError(''); 
@@ -97,10 +100,21 @@ function Registro(){
           </button>
         </form>
         
-        <p className="switch-auth">
-          ¿Ya tienes cuenta? <a href="#" id="show-login-link">Inicia Sesión</a>
-        </p>
+          <p className="switch-auth">
+           ¿Ya tienes cuenta? 
+          <button 
+                type="button" 
+                onClick={() => setOpenModal('login')} 
+                className="text-link"
+                id="show-login-link"
+            >
+                Inicia Sesión
+            </button>
+          </p>
       </div>
+
+      {openModal === 'login' && <Login onClose={closeModal} />}
+
     </div>
   );
 
