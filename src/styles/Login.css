@@ -34,7 +34,6 @@
     width: 90%; /* Ancho en móviles */
     max-width: 400px; /* Ancho máximo en escritorio */
     position: relative;
-    /* Opcional: animación suave */
     animation: slideUp 0.3s ease-out;
 }
 
@@ -99,7 +98,7 @@
     font-size: 16px;
 }
 
-/* Botón principal (CTA) */
+
 .cta-button {
     background-color: #eb86a8; /* Color azul primario */
     color: white;
@@ -122,14 +121,13 @@
 
 /* Mensajes de error */
 .error-message {
-    color: #dc3545; /* Rojo de error */
+    color: #dc3545; 
     margin-bottom: 15px;
     text-align: center;
     font-size: 14px;
     font-weight: 500;
 }
 
-/* Enlace para cambiar de modal */
 .switch-auth {
     margin-top: 20px;
     text-align: center;

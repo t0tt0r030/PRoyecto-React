@@ -1,4 +1,3 @@
-/* 1. TAMAÑO Y POSICIÓN (Máxima Prioridad) */
 #main-carousel {
     /* 80% de la altura de la ventana visible - 80px del header */
     height: calc(80vh - 80px) !important; 
@@ -11,16 +10,16 @@
     position: relative !important; 
 }
 
-/* 2. IMÁGENES DEL MISMO TAMAÑO */
+/* IMÁGENES DEL MISMO TAMAÑO */
 #main-carousel .swiper-slide img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* El zoom/recorte */
+    object-fit: cover !important;
     display: block !important;
 }
 
-/* 3. PAGINACIÓN (DOTS) y BOTONES (Flechas) */
-/* Posición y color de los dots */
+/* PAGINACIÓN y BOTONES  */
+
 #main-carousel .swiper-pagination {
     bottom: 10px !important;
     position: absolute !important;
@@ -37,7 +36,6 @@
     background-color: #fff !important;
 }
 
-/* Estilo y tamaño de los botones (flechas) */
 #main-carousel .swiper-button-next,
 #main-carousel .swiper-button-prev {
     background-color: rgba(0, 0, 0, 0.35) !important;

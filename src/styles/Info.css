@@ -1,5 +1,3 @@
-
-
 .contacto-navbar{
 background-color: var(--bg-color);
 box-shadow: 0 2px 4px var(--shadow-color);
@@ -19,25 +17,22 @@ top: 0;
 z-index: 1000;
 }
 
-/* --- Contenedor principal del formulario --- */
+/* Contenedor principal formulario */
 .contacto-form-container {
     background-color: #fff;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-  
-  /* --- Títulos del formulario --- */
   .contacto-form-container h3 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #343a40; /* Gris oscuro */
+    color: #343a40; 
     font-weight: 600;
   }
   
-  /* --- Mensajes de éxito y error --- */
   .contacto-success-message {
-    color: #28a745; /* Verde bootstrap */
+    color: #28a745; 
     background-color: #d4edda;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
@@ -45,14 +40,13 @@ z-index: 1000;
   }
   
   .contacto-error-message {
-    color: #dc3545; /* Rojo bootstrap */
+    color: #dc3545; 
     background-color: #f8d7da;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
   }
   
-  /* --- Inputs y Textarea --- */
   .contacto-input-wrapper {
     position: relative;
     margin-bottom: 1rem;
@@ -69,19 +63,18 @@ z-index: 1000;
   .contacto-input-wrapper input,
   .contacto-input-wrapper textarea {
     width: 100%;
-    padding: 0.5rem 0.75rem 0.5rem 2.5rem; /* deja espacio para el ícono */
+    padding: 0.5rem 0.75rem 0.5rem 2.5rem; 
     border: 1px solid #ced4da;
     border-radius: 0.5rem;
   }
   
   .contacto-input-wrapper input:focus,
   .contacto-input-wrapper textarea:focus {
-    border-color: #ff6b81; /* tu color principal */
+    border-color: #ff6b81;
     box-shadow: 0 0 0 0.2rem rgba(255, 107, 129, 0.25);
     outline: none;
   }
   
-  /* --- Botón enviar --- */
   .contacto-cta-button {
     width: 100%;
     padding: 0.75rem;
@@ -96,8 +89,7 @@ z-index: 1000;
   .contacto-cta-button:hover {
     background-color: #ff4a6a;
   }
-  
-  /* --- Tarjetas de información (correo, teléfono, ubicación) --- */
+
   .contacto-info-card {
     display: flex;
     align-items: flex-start;

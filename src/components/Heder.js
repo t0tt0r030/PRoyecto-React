@@ -13,8 +13,8 @@ function Heder() {
     const miMenu = [
         { nombre: "Productos", href: "#productos" },
         { nombre: "Sobre Nosotros", href: "#sobre-nosotros" },
-        { nombre: "Preguntas", href: "#Faq" },
-        { nombre: "Contacto", href: "#Info" }
+        { nombre: "Preguntas", href: "#faq" },
+        { nombre: "Contacto", href: "#info" }
     ];
 
     const [isDarkMode, setIsDarkMode] = useState(

@@ -37,15 +37,7 @@ function Producto() {
             precio: 48000
 
         },
-        {
-            id: 5,
-            imgSrc: "imagenes/6.png",
-            alt: "Pastel Personalizado",
-            nombre: "Pastel personalizado",
-            descripcion:"Tu imaginación es el ingrediente principal. Elige tu bizcocho favorito, combínalo con rellenos sedosos y la cobertura que prefieras. El pastel de tus sueños, hecho realidad.",
-            precio: 33000
-
-        },
+        
         {
           id: 5,
             imgSrc: "imagenes/5.png",
@@ -53,7 +45,16 @@ function Producto() {
             nombre: "Pastel de almendras ",
             descripcion: "Una explosión de sabor con crema batida y una mezcla de frutos rojos frescos.",
             precio: 35000
-        }
+        },
+        {
+            id: 6,
+            imgSrc: "imagenes/6.png",
+            alt: "Pastel Personalizado",
+            nombre: "Pastel personalizado",
+            descripcion:"Tu imaginación es el ingrediente principal. Elige tu bizcocho favorito, combínalo con rellenos sedosos y la cobertura que prefieras. El pastel de tus sueños, hecho realidad.",
+            precio: 33000
+
+        },
     ];
 
   
