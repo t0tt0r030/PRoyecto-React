@@ -1,0 +1,136 @@
+.contacto-navbar{
+background-color: var(--bg-color);
+box-shadow: 0 2px 4px var(--shadow-color);
+padding: 1rem 0;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+}
+.contacto-navbar-header{
+background-color: var(--bg-color);
+box-shadow: 0 2px 4px var(--shadow-color);
+padding: 1rem 0;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+}
+
+/* --- Contenedor principal del formulario --- */
+.contacto-form-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contacto-form-container h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #343a40; 
+    font-weight: 600;
+  }
+  
+    /* --- Mensajes de éxito y error --- */
+  .contacto-success-message {
+    color: #28a745; 
+    background-color: #d4edda;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contacto-error-message {
+    color: #dc3545; 
+    background-color: #f8d7da;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  .contacto-input-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .contacto-input-wrapper .contacto-input-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d; 
+  }
+  
+  .contacto-input-wrapper input,
+  .contacto-input-wrapper textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+  }
+  
+  .contacto-input-wrapper input:focus,
+  .contacto-input-wrapper textarea:focus {
+    border-color: #ff6b81; 
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 129, 0.25);
+    outline: none;
+  }
+  
+  /* --- Botón enviar --- */
+  .contacto-cta-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #ff6b81;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contacto-cta-button:hover {
+    background-color: #ff4a6a;
+  }
+  
+  /* Tarjetas de información */
+  .contacto-info-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .contacto-info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .contacto-info-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffe3e8;
+    color: #ff6b81;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .contacto-info-card h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #343a40;
+  }
+  
+  .contacto-info-card p {
+    margin: 0.25rem 0 0 0;
+    color: #6c757d;
+  }
+  
