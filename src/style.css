@@ -28,6 +28,7 @@
 
 body.dark-mode {
     --bg-color: #212529;
+    --text-color: #f4f4f4;
     --bg-secondary-color: #2c3034;
     --card-bg-color: #343a40;
     --text-color: #f8f9fa;
@@ -36,6 +37,17 @@ body.dark-mode {
     --shadow-color: rgba(0,0,0,0.25);
 }
 
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: var(--text-color);
+  transition: color 0.25s ease;
+}
 
 
 * {
@@ -56,6 +68,15 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
+
+
+/* Iconos por defecto */
+.theme-switcher .sun-icon { display: inline; }
+.theme-switcher .moon-icon { display: none; }
+/* Iconos para modo oscuro */
+body.dark-mode .theme-switcher .sun-icon { display: none; }
+body.dark-mode .theme-switcher .moon-icon { display: inline; }
 
 
 .container {
@@ -234,44 +255,7 @@ body {
 body.dark-mode .theme-switcher .sun-icon { transform: scale(0); opacity: 0; }
 body.dark-mode .theme-switcher .moon-icon { transform: scale(1); opacity: 1; }
 /* --- Sección Hero --- */
-#hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1920x1080.png?text=Productos+de+Limpieza');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding-inline: 20px;
-}
 
-.hero-title-wrapper, .hero-subtitle-wrapper {
-    overflow: hidden;
-}
-
-.hero-content h1 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-    transform: translateY(100%);
-    animation: reveal-up 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s forwards;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    transform: translateY(100%);
-    animation: reveal-up 1s cubic-bezier(0.23, 1, 0.32, 1) 0.7s forwards;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-md);
-}
 
 .cta-button {
     background-color: var(--primary-color);
@@ -331,12 +315,12 @@ section h2, .hero-content h1 {
 
 /* Asegura que el H2 dentro de la sección FAQ use Pacifico, con alta prioridad */
 #faq h2 {
-    font-family: var(--font-heading) !important; 
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 /* Asegura que todos los textos generales usen Lato */
-#faq p, #faq h4 {
-    font-family: var(--font-body); /* 'Lato', sans-serif */
-}
+
 
 
 .bg-light {

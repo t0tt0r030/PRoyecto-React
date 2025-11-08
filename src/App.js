@@ -25,10 +25,10 @@ function App ()
 {
   return(
     <>
-      <Heder />,
-      <Carousel />,
-      <Info />,
-      <Faq />,
+      <Heder />
+      <Carousel />
+      <Info />
+      <Faq />
       <Footer />
     </>
     
