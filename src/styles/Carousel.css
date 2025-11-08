@@ -1,11 +1,8 @@
 #main-carousel {
-    /* 80% de la altura de la ventana visible - 80px del header */
     height: calc(80vh - 80px) !important; 
     
-    /* Empuja debajo del header */
     margin-top: 80px !important; 
     
-    /* Propiedades básicas */
     width: 100% !important;
     position: relative !important; 
 }

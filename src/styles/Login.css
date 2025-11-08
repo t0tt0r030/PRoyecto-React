@@ -1,8 +1,7 @@
 
 .auth-modal {
-    /* Ocupa toda la pantalla */
     position: fixed;
-    z-index: 1000; /* Asegura que esté por encima de todo */
+    z-index: 1000; 
     left: 0;
     top: 0;
     width: 100%;
@@ -10,8 +9,6 @@
     
     
     background-color: rgba(0, 0, 0, 0.6); 
-    
-    /* Centrar el formulario */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,14 +22,13 @@
 }
 
 /* ESTILOS DE LA CAJA  */
-
 .auth-content {
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 90%; /* Ancho en móviles */
-    max-width: 400px; /* Ancho máximo en escritorio */
+    width: 90%;
+    max-width: 400px; 
     position: relative;
     animation: slideUp 0.3s ease-out;
 }
@@ -44,7 +40,6 @@
 
 
 /*ELEMENTOS INTERNOS */
-
 .close-btn {
     position: absolute;
     top: 10px;
@@ -94,13 +89,13 @@
     padding: 10px;
     border: 1px solid #c7c6c6;
     border-radius: 4px;
-    box-sizing: border-box; /* Asegura que padding no aumente el ancho */
+    box-sizing: border-box; 
     font-size: 16px;
 }
 
 
 .cta-button {
-    background-color: #eb86a8; /* Color azul primario */
+    background-color: #eb86a8; 
     color: white;
     padding: 12px;
     border: none;
@@ -145,7 +140,6 @@
     text-decoration: underline;
 }
 
-/* Estilo para el mensaje de éxito */
 .success-message {
     color: #28a745; 
     margin-bottom: 15px;

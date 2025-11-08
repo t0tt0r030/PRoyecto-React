@@ -12,6 +12,7 @@
     --spacing-lg: 25px;
     --spacing-xl: 40px;
 
+    
     --bg-color: #FFF5E1;          
     --bg-secondary-color: #FFC0CB; 
     --card-bg-color: #ffffff;      
@@ -33,7 +34,7 @@ body.dark-mode {
     --shadow-color: rgba(0,0,0,0.5); 
 }
 
-/* Aplicación de variables base al body */
+
 body {
     background-color: var(--bg-color);
     font-family: var(--font-body);
@@ -90,10 +91,10 @@ html {
 
 
 
-/* Iconos por defecto */
+
 .theme-switcher .sun-icon { display: inline; }
 .theme-switcher .moon-icon { display: none; }
-/* Iconos para modo oscuro */
+
 body.dark-mode .theme-switcher .sun-icon { display: none; }
 body.dark-mode .theme-switcher .moon-icon { display: inline; }
 
@@ -101,10 +102,10 @@ body.dark-mode .theme-switcher .moon-icon { display: inline; }
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding-inline: 20px;
+    padding-inline: 20px; 
 }
 
-/*Header y Navegación */
+/*  Header y Navegación  */
 .navbar {
     background-color: var(--bg-color) !important;
     box-shadow: 0 2px 4px var(--shadow-color);
@@ -173,6 +174,7 @@ body.dark-mode .theme-switcher .moon-icon { display: inline; }
     margin-inline-start: var(--spacing-lg); /* Usando variable y propiedad lógica */
 }
 
+/* Estilos para Botones de Registro/Login */
 
 .nav-links,
 .auth-buttons,
@@ -195,7 +197,6 @@ body.dark-mode .theme-switcher .moon-icon { display: inline; }
 }
 /* base de los botones (Registro/Login) */
 .auth-btn {
-    /* Basado en cta-button, pero más pequeño para el nav-bar */
     padding: var(--spacing-sm) var(--spacing-md);
     text-decoration: none;
     font-weight: 700;
@@ -271,7 +272,7 @@ body.dark-mode .theme-switcher .moon-icon { display: inline; }
 
 body.dark-mode .theme-switcher .sun-icon { transform: scale(0); opacity: 0; }
 body.dark-mode .theme-switcher .moon-icon { transform: scale(1); opacity: 1; }
-/* --- Sección Hero --- */
+
 
 .cta-button {
     background-color: var(--primary-color);
@@ -282,16 +283,14 @@ body.dark-mode .theme-switcher .moon-icon { transform: scale(1); opacity: 1; }
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
-    will-change: transform; /* 3. Optimización de Rendimiento */
+    will-change: transform; 
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
 }
 
-/* --- Efecto de énfasis para el botón del catálogo --- */
 .cta-highlight {
-    /* Animación para llamar la atención */
     animation: pulse 2s infinite ease-in-out;
 }
 
@@ -306,12 +305,11 @@ body.dark-mode .theme-switcher .moon-icon { transform: scale(1); opacity: 1; }
         transform: scale(1);
     }
 }
-/* --- Secciones Generales --- */
+/* Secciones Generales */
 section {
     padding: 80px 0;
 }
 
-/* Añade una línea sutil de separación entre secciones */
 section + section {
     border-top: 1px solid var(--border-color);
 }
@@ -324,18 +322,17 @@ section h2 {
     margin-bottom: 40px;
 }
 
-/* 4. Aplicar Pacifico a los Encabezados */
+
 section h2, .hero-content h1 {
-    font-family: var(--font-heading); /* Pacifico */
+    font-family: var(--font-heading); 
 }
 
-/* Asegura que el H2 dentro de la sección FAQ use Pacifico, con alta prioridad */
+
 #faq h2 {
   font-family: var(--font-heading);
   font-weight: 400;
   letter-spacing: 1px;
 }
-/* Asegura que todos los textos generales usen Lato */
 
 
 
@@ -343,7 +340,7 @@ section h2, .hero-content h1 {
     background-color: var(--bg-secondary-color);
 }
 
-/* --- Sección Ventajas --- */
+/* Sección Ventajas */
 #ventajas {
     padding: 60px 0;
 }
@@ -357,7 +354,7 @@ section h2, .hero-content h1 {
 
 .ventaja-item i {
     font-size: 3rem;
-    color: var(--secondary-color); /* Using purple for icons */
+    color: var(--secondary-color); 
     margin-bottom: 15px;
 }
 
@@ -375,12 +372,10 @@ section h2, .hero-content h1 {
     padding-inline: 10px;
 }
 
-/* Staggered animation delays */
 .ventaja-item:nth-child(2) { transition-delay: 0.1s; }
 .ventaja-item:nth-child(3) { transition-delay: 0.2s; }
 
 
-/* --- Grid de Productos --- */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -432,7 +427,7 @@ section h2, .hero-content h1 {
     padding-inline: var(--spacing-md);
     font-size: 0.9rem;
     color: var(--text-color-light);
-    min-height: 3em; /* Ayuda a alinear tarjetas con descripciones de distinta longitud */
+    min-height: 3em; 
 }
 
 .product-card .price-info {
@@ -470,12 +465,11 @@ body.dark-mode .product-card .offer-price {
     color: #333;
 }
 
-/* Staggered animation delays */
 .product-card:nth-child(2) { transition-delay: 0.1s; }
 .product-card:nth-child(3) { transition-delay: 0.2s; }
 .product-card:nth-child(4) { transition-delay: 0.3s; }
 
-/* --- Insignia de Oferta --- */
+/* Insignia de Oferta */
 .offer-badge {
     position: absolute;
     top: var(--spacing-md);
@@ -489,7 +483,7 @@ body.dark-mode .product-card .offer-price {
     box-shadow: 0 2px 5px var(--shadow-color);
 }
 
-/* --- Sección FAQ --- */
+/* Sección FAQ  */
 #faq .container {
     max-width: 800px;
 }
@@ -527,11 +521,10 @@ body.dark-mode .product-card .offer-price {
 }
 
 .faq-answer p {
-    /* Se usa min-height: 0 para que el contenido interno se colapse correctamente */
     min-height: 0;
     color: var(--text-color-light);
     line-height: 1.7;
-    padding-top: 15px; /* Añadimos el padding aquí */
+    padding-top: 15px;
 }
 
 .faq-item.active .faq-answer {
@@ -542,14 +535,13 @@ body.dark-mode .product-card .offer-price {
     transform: rotate(180deg);
 }
 
-/* --- Sobre Nosotros y Contacto --- */
+/* Sobre Nosotros y Contacto */
 #sobre-nosotros .container,
 #contacto .container {
     max-width: 800px;
     text-align: center;
 }
 
-/* Styling for general links within content sections */
 #contacto p a,
 .faq-answer a {
     color: var(--link-color);
@@ -560,7 +552,7 @@ body.dark-mode .product-card .offer-price {
 
 #contacto p a:hover,
 .faq-answer a:hover {
-    color: var(--primary-color); /* Change to primary color on hover for contrast */
+    color: var(--primary-color); 
     text-decoration: underline;
 }
 
@@ -603,7 +595,7 @@ body.dark-mode .product-card .offer-price {
     color: var(--primary-color);
 }
 
-/* --- Footer --- */
+/* Footer */
 footer {
     background-color: var(--bg-secondary-color);
     color: var(--text-color);
@@ -611,11 +603,11 @@ footer {
     padding: 20px 0;
 }
 
-/* --- Back to Top Button --- */
+
 .back-to-top-btn {
     position: fixed;
-    inset-block-end: 30px;   /* Reemplaza a 'bottom' */
-    inset-inline-end: 30px;  /* Reemplaza a 'right' */
+    inset-block-end: 30px;   
+    inset-inline-end: 30px;  
     background-color: var(--primary-color);
     color: #fff;
     width: 50px;
@@ -640,7 +632,6 @@ footer {
     transform: translateY(0);
 }
 
-/* 4. Agrupación de Selectores (DRY) */
 .cta-button:hover,
 .back-to-top-btn:hover {
     background-color: var(--link-color);
@@ -650,7 +641,7 @@ footer {
     transform: translateY(-5px);
 }
 
-/* Nuevos estilos para el carrito */
+/* Estilos para el carrito */
 .add-to-cart-btn {
     background-color: var(--link-color);
     color: white;
@@ -815,7 +806,7 @@ footer {
 }
 
 
-/* --- Animaciones de Scroll --- */
+/*  Animaciones de Scroll */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(var(--spacing-xl));
@@ -839,7 +830,6 @@ footer {
     font-size: 18px;
     background: #444;
   
-    /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -858,53 +848,41 @@ footer {
 #faq .container {
     max-width: 800px; 
 }
-/* 1. Limpia el padding del párrafo, y usa un contenedor interno para el espacio */
 .faq-answer p {
-    /* Elimina el padding-top de aquí: */
-    /* padding-top: 15px; */ 
-    margin: 0; /* Asegurar que no hay márgenes */
+    margin: 0; 
     padding-inline: 0;
 }
 
-/* 2. Añade un div interno dentro del <p> llamado .faq-content */
-/* (o mejor, aplica el padding a la respuesta cuando está activa) */
 .faq-item.active .faq-answer {
     grid-template-rows: 1fr;
-    /* Añade el padding al contenedor que se está abriendo */
-    padding-bottom: 15px; /* O el espaciado que necesites */
+    padding-bottom: 15px; 
     padding-top: 15px;
 }
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
 }
 
-/* En tu CSS, en la sección FAQ */
 .faq-question {
-    display: flex; /* Mantiene los elementos alineados y ajusta el ancho */
+    display: flex; 
     justify-content: space-between;
     align-items: center;
-
-    /* 💡 El cursor solo debe aparecer donde está la pregunta visible */
     cursor: pointer; 
-
-    /* Asegura que no haya padding invisible que se extienda demasiado */
     padding: 15px 0; 
 
 }
-/* Aseguramos que el H2 del FAQ use la fuente Pacifico */
+
 .faq-h2 {
-    font-family: var(--font-heading) !important; /* Pacifico */
+    font-family: var(--font-heading) !important; 
 }
 
-/* Aseguramos que el cuerpo de la respuesta use Lato */
 #faq .faq-answer p {
-    font-family: var(--font-body); /* Lato */
+    font-family: var(--font-body); 
 }
   
 .bold-text {
     font-weight: bold;
   }
-/* --- Animación Hero --- */
+/* Animación Hero */
 @keyframes reveal-up {
     from {
         transform: translateY(100%);
@@ -912,7 +890,7 @@ footer {
     to { transform: translateY(0); }
 }
 
-/* --- Responsividad --- */
+/* Responsividad */
 @media (max-width: 768px) {
     .nav-controls {
         gap: 15px;
@@ -921,8 +899,8 @@ footer {
     
     .nav-links {
         position: fixed;
-        top: 112px; /* Considerar usar una variable si esta altura cambia */
-        inset-inline-end: -100%; /* Reemplaza 'right' */
+        top: 112px; 
+        inset-inline-end: -100%; 
         width: 100%;
         height: calc(100vh - 112px);
         background-color: var(--bg-color);
@@ -933,7 +911,7 @@ footer {
     }
 
     .nav-links.active {
-        right: 0; /* Se desliza a la vista */
+        right: 0; 
     }
 
     .nav-links li {
@@ -945,7 +923,6 @@ footer {
         font-size: 1.5rem;
     }
 
-    /* Evita el scroll del body cuando el menú está abierto */
     body.no-scroll {
         overflow: hidden;
     }
@@ -970,5 +947,70 @@ footer {
         font-size: 1rem;
         padding: 10px 20px;
     }
-    
+ 
+
+/* Estilos para la Notificacion */
+.toast-notification {
+  position: fixed;
+  top: 100px; 
+  right: 20px;
+  background-color: #28a745; 
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2000; /* Por encima de todo */
+  font-weight: 600;
+  animation: slideInToast 0.3s ease-out forwards;
+}
+
+@keyframes slideInToast {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Estilos para la PÁGINA del carrito */
+.cart-page-container {
+  padding-top: 100px; 
+  padding-bottom: 40px;
+  min-height: 70vh; 
+}
+
+.cart-item {
+  align-items: center; 
+}
+
+.cart-item-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.cart-item-info p {
+  margin-bottom: 0;
+  color: var(--text-color-light);
+}
+
+.cart-item-actions {
+  gap: 15px; 
+}
+
+/* Estilo para el botón 'Quitar' del carrito */
+.remove-btn {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+.remove-btn:hover {
+  text-decoration: underline;
+}
+
 }

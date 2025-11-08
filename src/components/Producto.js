@@ -1,6 +1,7 @@
 import React from 'react';
 
-function Producto() {
+
+function Producto({ onAddToCart }) {
     
   
     const misProducto = [
@@ -39,7 +40,7 @@ function Producto() {
         },
         
         {
-          id: 5,
+          id: 6, 
             imgSrc: "imagenes/5.png",
             alt: "Pastel de almendra",
             nombre: "Pastel de almendras ",
@@ -79,7 +80,11 @@ function Producto() {
                                     </span>
                                 </div>
                             </div>
-                            <button className="add-to-cart-btn" data-id={producto.id}>
+                            {/* Botón para llamar a onAddToCart */}
+                            <button 
+                                className="add-to-cart-btn" 
+                                onClick={() => onAddToCart(producto)}
+                            >
                                 Agregar al carrito
                             </button>
                         </div>

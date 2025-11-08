@@ -57,7 +57,7 @@ z-index: 1000;
     left: 0.75rem;
     top: 50%;
     transform: translateY(-50%);
-    color: #6c757d; /* gris */
+    color: #6c757d; 
   }
   
   .contacto-input-wrapper input,
@@ -89,7 +89,6 @@ z-index: 1000;
   .contacto-cta-button:hover {
     background-color: #ff4a6a;
   }
-
   .contacto-info-card {
     display: flex;
     align-items: flex-start;

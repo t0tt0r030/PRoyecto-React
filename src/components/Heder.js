@@ -1,14 +1,15 @@
-import React, {useState, useEffect }from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from '../components/Login';
 import Registro from '../components/Registro';
 import { ShoppingCart, Sun, Moon, Menu } from "lucide-react";
+import { Link, useNavigate } from 'react-router-dom'; 
 import '../style.css';
 
-function Heder() { 
-    // Estado para controlar la visibilidad del menú colapsable
+function Heder({ cartItems }) { 
     const [isNavOpen, setIsNavOpen] = useState(false); 
     const [openModal, setOpenModal] = useState(null);
     const closeModal = () => setOpenModal(null);
+    const navigate = useNavigate();
 
     const miMenu = [
         { nombre: "Productos", href: "#productos" },
@@ -29,6 +30,25 @@ function Heder() {
     
     const toggleTheme = () => setIsDarkMode(!isDarkMode);
     const toggleNav = () => setIsNavOpen(!isNavOpen);
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    const handleNavClick = (e, hash) => {
+        e.preventDefault(); 
+        if (isNavOpen) {
+            toggleNav();
+        }
+
+       
+        const id = hash.substring(1);
+        navigate('/');
+
+        // Usamos un pequeño timeout. Esto le da tiempo para cargar los componentes de la pag principal
+        setTimeout(() => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100); // 100ms tiempo de espera seguro
+    };
 
     return (
         <header>
@@ -42,7 +62,7 @@ function Heder() {
                             style={{ maxWidth: '100px', marginRight: '10px' }} 
                         />
                     </a>
-                    {/* TOGGLER */}
+                    
                     <button className="navbar-toggler border-0" type="button" onClick={toggleNav} aria-expanded={isNavOpen} aria-label="Toggle navigation">
                         <Menu size={30} color={isDarkMode ? "#f8f9fa" : "#333"} /> 
                     </button>
@@ -52,7 +72,13 @@ function Heder() {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0"> 
                             {miMenu.map((item, index) => (
                                 <li key={index} className="nav-item bold-text"> 
-                                    <a className="nav-link px-3" href={item.href} onClick={() => isNavOpen && toggleNav()}>{item.nombre}</a>
+                                    <a 
+                                        className="nav-link px-3" 
+                                        href={item.href} 
+                                        onClick={(e) => handleNavClick(e, item.href)}
+                                    >
+                                        {item.nombre}
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -70,9 +96,18 @@ function Heder() {
                                     <button onClick={() => { setOpenModal('registro'); isNavOpen && toggleNav(); }} className="auth-btn btn-register btn-sm">Registro</button>
                                     <button onClick={() => { setOpenModal('login'); isNavOpen && toggleNav(); }} className="auth-btn btn-login btn-sm">Login</button>
                                 </div>
-                                <div className="cart-icon-container" role="button" tabIndex={0} style={{ cursor: 'pointer' }}>
+
+                                <Link 
+                                    to="/carrito" 
+                                    className="cart-icon-container" 
+                                    style={{ cursor: 'pointer', textDecoration: 'none' }}
+                                    onClick={() => isNavOpen && toggleNav()}
+                                >
                                     <ShoppingCart size={24} />
-                                </div>
+                                    {totalItems > 0 && (
+                                      <span id="cart-count">{totalItems}</span>
+                                    )}
+                                </Link>
                             </div>
                         </div>
                     </div>

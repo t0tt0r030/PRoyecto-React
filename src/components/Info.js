@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, User } from "lucide-react";
-import Heder from "./Heder";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function Contacto() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -43,7 +40,7 @@ function Contacto() {
 
   return (
 
-      <main className="contacto-main container my-5">
+      <main id="Info" className="contacto-main container my-5"> 
         <div className="contacto-header text-center mb-5">
           <h2 className="contacto-title">Ponte en Contacto</h2>
           <p className="contacto-subtitle">
