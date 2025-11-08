@@ -55,7 +55,6 @@ body.dark-mode .text-muted {
     color: var(--text-color-light) !important;
 }
 
-
 body.dark-mode .form-control,
 body.dark-mode .form-select {
     background-color: var(--bg-secondary-color) !important;
@@ -63,12 +62,10 @@ body.dark-mode .form-select {
     color: var(--text-color) !important;
 }
 
-
 body.dark-mode .form-control::placeholder {
     color: var(--text-color-light);
     opacity: 1;
 }
-
 
 body.dark-mode .theme-switcher,
 body.dark-mode .cart-icon-container,
@@ -170,7 +167,6 @@ body.dark-mode .theme-switcher .moon-icon { display: inline; }
     }
 }
 
-
 .navbar.navbar-scrolled .brand-logo img {
     height: 60px;
 }
@@ -259,19 +255,16 @@ body.dark-mode .theme-switcher .moon-icon { display: inline; }
     cursor: pointer;
 }
 
-
 .nav-controls {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
 }
 
-
 .theme-switcher .sun-icon {
     transform: scale(1);
     opacity: 1;
 }
-
 
 .theme-switcher .moon-icon {
     transform: scale(0);
@@ -381,10 +374,8 @@ section h2, .hero-content h1 {
     padding-inline: 10px;
 }
 
-
 .ventaja-item:nth-child(2) { transition-delay: 0.1s; }
 .ventaja-item:nth-child(3) { transition-delay: 0.2s; }
-
 
 
 .product-grid {
@@ -475,7 +466,6 @@ section h2, .hero-content h1 {
 body.dark-mode .product-card .offer-price {
     color: #333;
 }
-
 
 .product-card:nth-child(2) { transition-delay: 0.1s; }
 .product-card:nth-child(3) { transition-delay: 0.2s; }
@@ -934,7 +924,6 @@ footer {
     .nav-links a {
         font-size: 1.5rem;
     }
-
 
     body.no-scroll {
         overflow: hidden;
