@@ -6,14 +6,14 @@ import '@testing-library/jest-dom';
 jest.mock('swiper/react', () => ({
   Swiper: ({ children }) => <div data-testid="swiper-container">{children}</div>,
   SwiperSlide: ({ children }) => <div data-testid="swiper-slide">{children}</div>,
-}));
+}), { virtual: true });
 
 // Mock de los módulos de Swiper
 jest.mock('swiper/modules', () => ({
     Autoplay: () => null,
     Pagination: () => null,
     Navigation: () => null,
-}));
+}), { virtual: true });
 
 describe('Componente Carousel - Pruebas Front', () => {
     test('Test 1: Renderiza el contenedor principal del Swiper', () => {

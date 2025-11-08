@@ -22,6 +22,30 @@ function Heder({ cartItems }) {
         localStorage.getItem('theme') === 'dark'
     );
 
+    {/* GESTOR DE SESIÓN USUARIO*/}
+
+    const [usuarioActivo, setUsuarioActivo] = useState(null);
+
+    useEffect(() => {
+        const sesionGuardada = localStorage.getItem('sesionActiva');
+        if (sesionGuardada) {
+            setUsuarioActivo(JSON.parse(sesionGuardada));
+        }
+    }, []);
+
+    const handleLoginSuccess = (usuario) => {
+        setUsuarioActivo(usuario);
+        localStorage.setItem('sesionActiva', JSON.stringify(usuario)); // Guardamos la sesión
+        closeModal(); // Cerramos el modal
+    };
+
+    const handleLogout = () => {
+        setUsuarioActivo(null);
+        localStorage.removeItem('sesionActiva'); // Eliminamos la sesión
+    };
+
+    {/* GESTOR DE SESIÓN USUARIO*/}
+
     useEffect(() => {
         document.body.classList.toggle('dark-mode', isDarkMode);
         localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
@@ -85,16 +109,36 @@ function Heder({ cartItems }) {
 
                             <div className="d-flex align-items-center gap-3 mt-3 mt-lg-0">   
                                 <div 
-                                className="theme-switcher" 
-                                role="button" 
-                                tabIndex={0} 
-                                onClick={toggleTheme} 
-                                style={{ cursor: 'pointer' }}>
-                                    {isDarkMode ? (<Moon size={20} color="#f8f9fa"/>) : (<Sun size={20} color="#333"/>)}
+                                    className="theme-switcher" 
+                                    role="button" 
+                                    tabIndex={0} 
+                                    onClick={toggleTheme} 
+                                    style={{ cursor: 'pointer' }}>
+                                        {isDarkMode ? (<Moon size={20} color="#f8f9fa"/>) : (<Sun size={20} color="#333"/>)}
                                 </div>
-                                <div className="auth-buttons d-flex gap-2"> 
-                                    <button onClick={() => { setOpenModal('registro'); isNavOpen && toggleNav(); }} className="auth-btn btn-register btn-sm">Registro</button>
-                                    <button onClick={() => { setOpenModal('login'); isNavOpen && toggleNav(); }} className="auth-btn btn-login btn-sm">Login</button>
+                                <div className="auth-buttons d-flex align-items-center gap-2">
+                                    {usuarioActivo ? (
+                                    // SI HAY USUARIO LOGUEADO -> HOLA!! 
+                                <>
+                            <span className="text-muted me-2 d-none d-md-inline">
+                                Hola, <strong>{usuarioActivo.name || 'Usuario'}</strong>!
+                                </span>
+                                    <button 
+                                        onClick={() => { handleLogout(); isNavOpen && toggleNav(); }} 
+                                        className="auth-btn btn-outline-danger btn-sm"
+                                        style={{border: '1px solid #dc3545', color: '#dc3545'}} 
+                                    >
+                                        Salir
+                                    </button>
+                                        </>
+                                    ) : (
+                                        // NO HAY NADIE¿? -> Registro/Login de siempre
+                                        <>
+                                            <button onClick={() => { setOpenModal('registro'); isNavOpen && toggleNav(); }} className="auth-btn btn-register btn-sm">Registro</button>
+                                            <button onClick={() => { setOpenModal('login'); isNavOpen && toggleNav(); }} className="auth-btn btn-login btn-sm ml-2">Login</button>
+                                        </>
+                                    )}
+       
                                 </div>
 
                                 <Link 
@@ -112,8 +156,19 @@ function Heder({ cartItems }) {
                         </div>
                     </div>
                 </nav>
-                {openModal === 'login' && <Login onClose={closeModal} />}     
-                {openModal === 'registro' && <Registro onClose={closeModal} />}
+                {openModal === 'login' && (
+                    <Login 
+                        onClose={closeModal} 
+                        onSwitchToRegister={() => setOpenModal('registro')} 
+                        onLoginSuccess={handleLoginSuccess}
+                    />
+                )}     
+                {openModal === 'registro' && (
+                    <Registro 
+                        onClose={closeModal} 
+                        onSwitchToLogin={() => setOpenModal('login')}
+                    />
+             )}
                 
         </header>
     );

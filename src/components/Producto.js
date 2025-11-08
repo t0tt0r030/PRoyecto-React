@@ -1,13 +1,16 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import ModalPersonalizacion from './ModalPersonalizacion';
 
 function Producto({ onAddToCart }) {
+    const [showCustomModal, setShowCustomModal] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+
     
   
     const misProducto = [
         {
             id: 1,
-            imgSrc: "imagenes/4.png",
+            imgSrc: "/imagenes/4.png",
             alt: "Pastel de Chocolate",
             nombre: "Pastel de Chocolate",
             descripcion: "Un clásico para los amantes del cacao, con un bizcocho húmedo y una suave cobertura.",
@@ -15,7 +18,7 @@ function Producto({ onAddToCart }) {
         },
         {
             id: 2,
-            imgSrc: "imagenes/2.png",
+            imgSrc: "/imagenes/2.png",
             alt: "Pastel Doble Chocolate",
             nombre: "Pastel Doble Chocolate",
             descripcion: "Doble porción de chocolate, con diferentes concentraciones.",
@@ -23,7 +26,7 @@ function Producto({ onAddToCart }) {
         },
         {
             id: 3,
-            imgSrc: "imagenes/3.png",
+            imgSrc: "/imagenes/3.png",
             alt: "Pastel de Frutos Rojos",
             nombre: "Pastel Frutos Rojos",
             descripcion: "Una explosión de sabor con crema batida y una mezcla de frutos rojos frescos.",
@@ -31,7 +34,7 @@ function Producto({ onAddToCart }) {
         },
         {
             id: 4,
-            imgSrc: "imagenes/7.png",
+            imgSrc: "/imagenes/7.png",
             alt: "Pastel helado -frambueza",
             nombre: "Pastel helado frambuesa",
             descripcion: "Una delicia refrescante que combina la acidez vibrante de las frambuesas frescas con la suavidad de nuestro relleno de crema.",
@@ -40,8 +43,8 @@ function Producto({ onAddToCart }) {
         },
         
         {
-          id: 6, 
-            imgSrc: "imagenes/5.png",
+          id: 5, 
+            imgSrc: "/imagenes/5.png",
             alt: "Pastel de almendra",
             nombre: "Pastel de almendras ",
             descripcion: "Una explosión de sabor con crema batida y una mezcla de frutos rojos frescos.",
@@ -49,7 +52,7 @@ function Producto({ onAddToCart }) {
         },
         {
             id: 6,
-            imgSrc: "imagenes/6.png",
+            imgSrc: "/imagenes/6.png",
             alt: "Pastel Personalizado",
             nombre: "Pastel personalizado",
             descripcion:"Tu imaginación es el ingrediente principal. Elige tu bizcocho favorito, combínalo con rellenos sedosos y la cobertura que prefieras. El pastel de tus sueños, hecho realidad.",
@@ -57,41 +60,53 @@ function Producto({ onAddToCart }) {
 
         },
     ];
+    const handleProductClick = (producto) => {
+            setSelectedProduct(producto);
+            setShowCustomModal(true);
+        };
 
+        const handleConfirmCustomization = (productoPersonalizado) => {
+            onAddToCart(productoPersonalizado);
+            setShowCustomModal(false);
+        };
   
-    return (
-        <section id="productos" >
+ return (
+        <section id="productos">
             <div className="container">
                 <h2>Nuestros Productos</h2>
                 <div className="product-grid">
-
-                
                     {misProducto.map((producto) => (
-                        
                         <div className="product-card" key={producto.id}>
-                            
                             <img src={producto.imgSrc} alt={producto.alt} />
+                            {/* ... imagen, info ... */}
                             <div className="product-card-body">
                                 <h3>{producto.nombre}</h3>
                                 <p>{producto.descripcion}</p>
                                 <div className="price-info">
-                                    <span className="offer-price" data-price={producto.precio}>
-                                        ${producto.precio.toLocaleString('es-CL')}
-                                    </span>
+                                    <span className="offer-price">${producto.precio.toLocaleString('es-CL')}</span>
                                 </div>
                             </div>
-                            {/* Botón para llamar a onAddToCart */}
+                  
                             <button 
                                 className="add-to-cart-btn" 
-                                onClick={() => onAddToCart(producto)}
+                                onClick={() => handleProductClick(producto)}
                             >
                                 Agregar al carrito
                             </button>
                         </div>
                     ))}
-
                 </div>
             </div>
+
+            {/* modal se renderiza condicionalmente si hay un producto seleccionado */}
+            {showCustomModal && (
+                <ModalPersonalizacion 
+                    isOpen={showCustomModal}
+                    onClose={() => setShowCustomModal(false)}
+                    producto={selectedProduct}
+                    onConfirm={handleConfirmCustomization}
+                />
+            )}
         </section>
     );
 }

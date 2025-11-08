@@ -14,10 +14,28 @@ function Cart({ isOpen, onClose, cartItems, onRemove, onUpdate }) {
     return null;
   }
 
+  const getSubtotal = () => {
+        return cartItems.reduce((total, item) => total + item.precio * item.quantity, 0);
+    };
+
   // Calcula el precio total
-  const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.precio * item.quantity, 0);
-  };
+  const getTotal = () => {
+        const subtotal = getSubtotal();
+        return subtotal - (subtotal * descuentoAplicado);
+    };
+
+  const aplicarDescuento = () => {
+        const codigo = codigoDesc.trim().toUpperCase();
+        
+        if (codigo === 'FELICES50') {
+            setDescuentoAplicado(0.10); // 10% de descuento
+            setMensajeDesc('🎉 ¡Súper descuento del 10% aplicado!');
+        } else {
+            setDescuentoAplicado(0);
+            setMensajeDesc('❌ Código no válido');
+        }
+    };
+
 
   return (
     <div className="cart-modal show">
@@ -54,14 +72,50 @@ function Cart({ isOpen, onClose, cartItems, onRemove, onUpdate }) {
                 </li>
               ))}
             </ul>
-            <div className="cart-summary">
-              <p>Total: <span className="total-price">${getTotalPrice().toLocaleString('es-CL')}</span></p>
-              <button className="cta-button" style={{width: '100%'}}>Ir a Pagar</button>
+
+
+            <div className="discount-section mt-3 p-3 bg-light rounded">
+                            <label className="form-label fw-bold">¿Tienes un código de descuento?</label>
+                            <div className="input-group mb-2">
+                                <input 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Ej: DULCE10"
+                                    value={codigoDesc}
+                                    onChange={(e) => setCodigoDesc(e.target.value)}
+                                />
+                                <button className="btn btn-outline-secondary" type="button" onClick={aplicarDescuento}>
+                                    Aplicar
+                                </button>
+                            </div>
+                            {mensajeDesc && <small className={descuentoAplicado > 0 ? 'text-success' : 'text-danger'}>{mensajeDesc}</small>}
+                        </div>
+
+                        {/* RESUMEN DE TOTALES */}
+                        <div className="cart-summary mt-3">
+                            <div className="d-flex justify-content-between">
+                                <span>Subtotal:</span>
+                                <span>${getSubtotal().toLocaleString('es-CL')}</span>
+                            </div>
+                            
+                            {descuentoAplicado > 0 && (
+                                <div className="d-flex justify-content-between text-success">
+                                    <span>Descuento:</span>
+                                    <span>-${(getSubtotal() * descuentoAplicado).toLocaleString('es-CL')}</span>
+                                </div>
+                            )}
+                            
+                            <div className="d-flex justify-content-between fw-bold fs-5 mt-2">
+                                <span>Total:</span>
+                                <span className="total-price">${getTotal().toLocaleString('es-CL')}</span>
+                            </div>
+                            
+                            <button className="cta-button mt-3" style={{width: '100%'}}>Ir a Pagar</button>
+                        </div>
+                    </>
+                )}
             </div>
-          </>
-        )}
-      </div>
-    </div>
+        </div>
   );
 }
 

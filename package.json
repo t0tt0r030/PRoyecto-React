@@ -19,8 +19,21 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "<rootDir>/mocks/styleMock.js",
+      "^swiper/css": "<rootDir>/mocks/styleMock.js",
+      "^swiper/css/pagination": "<rootDir>/mocks/styleMock.js",
+      "^swiper/css/navigation": "<rootDir>/mocks/styleMock.js"
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +52,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "jest": "^27.5.1"
   }
 }
