@@ -1,0 +1,54 @@
+/* 1. TAMAÑO Y POSICIÓN (Máxima Prioridad) */
+#main-carousel {
+    /* 80% de la altura de la ventana visible - 80px del header */
+    height: calc(80vh - 80px) !important; 
+    
+    /* Empuja debajo del header */
+    margin-top: 80px !important; 
+    
+    /* Propiedades básicas */
+    width: 100% !important;
+    position: relative !important; 
+}
+
+/* 2. IMÁGENES DEL MISMO TAMAÑO */
+#main-carousel .swiper-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* El zoom/recorte */
+    display: block !important;
+}
+
+/* 3. PAGINACIÓN (DOTS) y BOTONES (Flechas) */
+/* Posición y color de los dots */
+#main-carousel .swiper-pagination {
+    bottom: 10px !important;
+    position: absolute !important;
+}
+
+#main-carousel .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    opacity: 1 !important;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+#main-carousel .swiper-pagination-bullet-active {
+    background-color: #fff !important;
+}
+
+/* Estilo y tamaño de los botones (flechas) */
+#main-carousel .swiper-button-next,
+#main-carousel .swiper-button-prev {
+    background-color: rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(4px) !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    color: #fff !important; 
+}
+
+#main-carousel .swiper-button-next::after,
+#main-carousel .swiper-button-prev::after {
+    font-size: 20px !important; 
+}
