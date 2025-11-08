@@ -46,7 +46,7 @@ function Contacto() {
       <main className="contacto-main container my-5">
         <div className="contacto-header text-center mb-5">
           <h2 className="contacto-title">Ponte en Contacto</h2>
-          <p className="contacto-subtitle text-muted">
+          <p className="contacto-subtitle">
             ¿Tienes alguna pregunta, sugerencia o pedido especial? Nos encantaría escucharte.
           </p>
         </div>
@@ -54,7 +54,7 @@ function Contacto() {
         <div className="row g-4">
           {/* FORMULARIO */}
           <div className="col-lg-6">
-            <form onSubmit={handleSubmit} noValidate className="contacto-form p-4 border rounded shadow-sm bg-white">
+            <form onSubmit={handleSubmit} noValidate className="contacto-form p-4 border rounded shadow-sm">
               <h3 className="contacto-form-title text-center mb-4">Envíanos un Mensaje</h3>
 
               {successMessage && <div className="contacto-success-message text-center">{successMessage}</div>}
@@ -63,7 +63,7 @@ function Contacto() {
               <div className="mb-3 contacto-form-group">
                 <label htmlFor="nombre" className="form-label contacto-form-label">Nombre Completo</label>
                 <div className="input-group contacto-input-wrapper">
-                  <span className="input-group-text contacto-input-icon bg-light"><User size={18} /></span>
+                  <span className="input-group-text contacto-input-icon"><User size={18} /></span>
                   <input type="text" id="nombre" name="nombre" className="form-control contacto-input" placeholder="Tu nombre y apellido" required />
                 </div>
               </div>
@@ -71,7 +71,7 @@ function Contacto() {
               <div className="mb-3 contacto-form-group">
                 <label htmlFor="email" className="form-label contacto-form-label">Correo Electrónico</label>
                 <div className="input-group contacto-input-wrapper">
-                  <span className="input-group-text contacto-input-icon bg-light"><Mail size={18} /></span>
+                  <span className="input-group-text contacto-input-icon"><Mail size={18} /></span>
                   <input type="email" id="email" name="email" className="form-control contacto-input" placeholder="ejemplo@correo.com" required />
                 </div>
               </div>

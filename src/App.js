@@ -28,8 +28,8 @@ function App ()
   return(
     <>
       <Heder />
-      <Producto/>
       <Carousel />
+      <Producto/>
       <Info />
       <Faq />
       <Nosotros/>

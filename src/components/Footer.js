@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer className="contacto-footer bg-dark text-white text-center py-4 mt-5">
             <p>&copy; {new Date().getFullYear()} Pastelería Mil Sabores.</p>
-            <p className="text-secondary small mb-0">Desarrollado con React, y cariño  🥧</p>
+            <p className="text-secondary small mb-0">Desarrollado con React, y cariño 🥧</p>
         </footer>
     );
 }

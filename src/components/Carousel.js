@@ -26,19 +26,19 @@ function Carousel() {
             className="mySwiper"
           >
             <SwiperSlide>
-                <img src= "./imagenes/torta1.jpg"/>
+                <img src= "./imagenes/chocolate.jpg"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src= "./imagenes/1.png"/>
+                <img src= "./imagenes/frutas.png"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src= "./imagenes/2.jpg"/>
+                <img src= "./imagenes/manjar.jpg"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src= "./imagenes/3.jpg"/>
+                <img src= "./imagenes/mousse.png"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src= "./imagenes/4.jpg"/>
+                <img src= "./imagenes/vainilla.png"/>
             </SwiperSlide>
           </Swiper>
 
