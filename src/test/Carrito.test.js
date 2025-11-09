@@ -39,7 +39,10 @@ describe('Componente Carrito (Modal) - Pruebas Front', () => {
         expect(screen.getByDisplayValue('2')).toBeInTheDocument(); // cantidad
         
         // verifica total: (25000*2) + 28000 = 78000 ----> operación sencilla de carrito especificada en lista mockCarrito.
-        expect(screen.getByText(/\$78\.000/)).toBeInTheDocument();
+        const preciosEncontrados = screen.getAllByText(/\$78\.000/);
+        expect(preciosEncontrados.length).toBeGreaterThanOrEqual(1);
+        // ^ puede aparecer más de una vez el resultado, ya que muestra un subtotal y total, sin contar el código de descuento.
+        // ^ no pasa las pruebas unitarias sin esta linea, debido a lo mismo.
     });
 
     test('Test 4: El botón de cerrar llama a onClose', () => {

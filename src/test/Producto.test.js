@@ -26,16 +26,29 @@ describe('Componente Producto - Pruebas Front', () => {
         expect(screen.getByText('$25.000')).toBeInTheDocument();
     });
 
-    test('Test 4: El botón "Agregar al carrito" llama a la función prop', () => {
-        render(<Producto onAddToCart={mockOnAddToCart} />);
 
+    test('Test 4: El flujo completo (botón -> modal -> confirmar) llama a la función prop', () => {
+        render(<Producto onAddToCart={mockOnAddToCart} />);
+        
+        // Encontramos y hacemos clic en el botón del producto
         const botonesAgregar = screen.getAllByText(/Agregar al carrito/i);
-        fireEvent.click(botonesAgregar[0]);
+        fireEvent.click(botonesAgregar[0]); // abre el modal
+
+        // BUSCAMOS  BOTÓN DENTRO DEL MODAL
+        const botonConfirmarModal = screen.getByText(/Confirmar Personalización/i);
+        
+        // captura el clic en confirmar
+        fireEvent.click(botonConfirmarModal);
+        
         expect(mockOnAddToCart).toHaveBeenCalledTimes(1);
+        
+
         expect(mockOnAddToCart).toHaveBeenCalledWith(expect.objectContaining({
-            nombre: 'Pastel de Chocolate',
-            precio: 25000
+             nombre: expect.stringContaining('Pastel de Chocolate'),
+             precio: 25000
         }));
     });
+
+
 
 });
