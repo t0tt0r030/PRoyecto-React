@@ -13,6 +13,28 @@ function Registro({ onClose, onSwitchToLogin }) {
         const password = e.target["reg-password"].value;
         const dob = e.target["reg-dob"].value;
 
+        // BACKEND
+const registrarUsuario = async (datosUsuario) => {
+  try {
+    const respuesta = await fetch('http://localhost:3001/api/pasteleriaMilSabores/usuarios', { // O la ruta que definiste '/registro'
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(datosUsuario),
+    });
+
+    const data = await respuesta.json();
+    if (respuesta.ok) {
+      alert('¡Usuario registrado con éxito!');
+    } else {
+      alert('Error: ' + data.message);
+    }
+  } catch (error) {
+    console.error('Error al conectar con el servidor:', error);
+  }
+};
+
         //VALIDACIONES
         if (password.length < 6) {
             setError("La contraseña debe tener al menos 6 caracteres.");

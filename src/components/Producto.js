@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalPersonalizacion from './ModalPersonalizacion';
 
 function Producto({ onAddToCart }) {
     const [showCustomModal, setShowCustomModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
-
     
-  
+    // Estado para los productos del Backend
+    const [productos, setProductos] = useState([]);
+
     const misProducto = [
         {
             id: 1,
@@ -41,9 +42,8 @@ function Producto({ onAddToCart }) {
             precio: 48000
 
         },
-        
         {
-          id: 5, 
+            id: 5,
             imgSrc: "/imagenes/5.png",
             alt: "Pastel de almendra",
             nombre: "Pastel de almendras ",
@@ -55,30 +55,45 @@ function Producto({ onAddToCart }) {
             imgSrc: "/imagenes/6.png",
             alt: "Pastel Personalizado",
             nombre: "Pastel personalizado",
-            descripcion:"Tu imaginación es el ingrediente principal. Elige tu bizcocho favorito, combínalo con rellenos sedosos y la cobertura que prefieras. El pastel de tus sueños, hecho realidad.",
+            descripcion: "Tu imaginación es el ingrediente principal. Elige tu bizcocho favorito, combínalo con rellenos sedosos y la cobertura que prefieras. El pastel de tus sueños, hecho realidad.",
             precio: 33000
 
         },
     ];
-    const handleProductClick = (producto) => {
-            setSelectedProduct(producto);
-            setShowCustomModal(true);
-        };
 
-        const handleConfirmCustomization = (productoPersonalizado) => {
-            onAddToCart(productoPersonalizado);
-            setShowCustomModal(false);
-        };
-  
- return (
+    const handleProductClick = (producto) => {
+        setSelectedProduct(producto);
+        setShowCustomModal(true);
+    };
+
+    const handleConfirmCustomization = (productoPersonalizado) => {
+        onAddToCart(productoPersonalizado);
+        setShowCustomModal(false);
+    };
+
+    // CONEXIÓN CON BACKEND
+    useEffect(() => {
+        fetch('http://localhost:3001/api/pasteleriaMilSabores/productos')
+            .then(res => res.json())
+            .then(data => {
+                console.log("Productos cargados desde BD:", data);
+                setProductos(data);
+            })
+            .catch(err => console.error('Error trayendo productos:', err));
+    }, []);
+
+    // INTERFAZ GRÁFICA
+    return (
         <section id="productos">
             <div className="container">
                 <h2>Nuestros Productos</h2>
                 <div className="product-grid">
+                    {/* Nota: Aquí seguimos usando 'misProducto' (local) porque tiene las imágenes. 
+                        Si quisieras usar los de la BD, cambiarías 'misProducto' por 'productos' 
+                        (asegurándote de que la BD tenga un campo de imagen). */}
                     {misProducto.map((producto) => (
                         <div className="product-card" key={producto.id}>
                             <img src={producto.imgSrc} alt={producto.alt} />
-                            {/* ... imagen, info ... */}
                             <div className="product-card-body">
                                 <h3>{producto.nombre}</h3>
                                 <p>{producto.descripcion}</p>
@@ -86,9 +101,9 @@ function Producto({ onAddToCart }) {
                                     <span className="offer-price">${producto.precio.toLocaleString('es-CL')}</span>
                                 </div>
                             </div>
-                  
-                            <button 
-                                className="add-to-cart-btn" 
+
+                            <button
+                                className="add-to-cart-btn"
                                 onClick={() => handleProductClick(producto)}
                             >
                                 Agregar al carrito
@@ -98,9 +113,9 @@ function Producto({ onAddToCart }) {
                 </div>
             </div>
 
-            {/* modal se renderiza condicionalmente si hay un producto seleccionado */}
+            {/* Modal se renderiza condicionalmente si hay un producto seleccionado */}
             {showCustomModal && (
-                <ModalPersonalizacion 
+                <ModalPersonalizacion
                     isOpen={showCustomModal}
                     onClose={() => setShowCustomModal(false)}
                     producto={selectedProduct}
