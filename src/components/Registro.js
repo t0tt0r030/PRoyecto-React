@@ -13,10 +13,10 @@ function Registro({ onClose, onSwitchToLogin }) {
         const password = e.target["reg-password"].value;
         const dob = e.target["reg-dob"].value;
 
-        // BACKEND
+        // CONEXIÓN CON BACKEND
 const registrarUsuario = async (datosUsuario) => {
   try {
-    const respuesta = await fetch('http://localhost:3001/api/pasteleriaMilSabores/usuarios', { // O la ruta que definiste '/registro'
+    const respuesta = await fetch('http://localhost:3001/api/pasteleriaMilSabores/registro', { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -8,6 +8,17 @@ function Producto({ onAddToCart }) {
     // Estado para los productos del Backend
     const [productos, setProductos] = useState([]);
 
+     // CONEXIÓN CON BACKEND
+    useEffect(() => {
+        fetch('http://localhost:3001/api/pasteleriaMilSabores/productos')
+            .then(res => res.json())
+            .then(data => {
+                console.log("Productos cargados desde BD:", data);
+                setProductos(data);
+            })
+            .catch(err => console.error('Error trayendo productos:', err));
+    }, []);
+
     const misProducto = [
         {
             id: 1,
@@ -71,26 +82,14 @@ function Producto({ onAddToCart }) {
         setShowCustomModal(false);
     };
 
-    // CONEXIÓN CON BACKEND
-    useEffect(() => {
-        fetch('http://localhost:3001/api/pasteleriaMilSabores/productos')
-            .then(res => res.json())
-            .then(data => {
-                console.log("Productos cargados desde BD:", data);
-                setProductos(data);
-            })
-            .catch(err => console.error('Error trayendo productos:', err));
-    }, []);
-
+   
     // INTERFAZ GRÁFICA
     return (
         <section id="productos">
             <div className="container">
                 <h2>Nuestros Productos</h2>
                 <div className="product-grid">
-                    {/* Nota: Aquí seguimos usando 'misProducto' (local) porque tiene las imágenes. 
-                        Si quisieras usar los de la BD, cambiarías 'misProducto' por 'productos' 
-                        (asegurándote de que la BD tenga un campo de imagen). */}
+                    
                     {misProducto.map((producto) => (
                         <div className="product-card" key={producto.id}>
                             <img src={producto.imgSrc} alt={producto.alt} />
