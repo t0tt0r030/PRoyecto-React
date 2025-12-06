@@ -10,14 +10,14 @@ function Producto({ onAddToCart }) {
 
      // CONEXIÓN CON BACKEND
     useEffect(() => {
-        fetch('http://localhost:3001/api/pasteleriaMilSabores/productos')
-            .then(res => res.json())
-            .then(data => {
-                console.log("Productos cargados desde BD:", data);
-                setProductos(data);
-            })
-            .catch(err => console.error('Error trayendo productos:', err));
-    }, []);
+    fetch('http://localhost:3001/api/pasteleriaMilSabores/productos/productos')
+        .then(res => res.json())
+        .then(data => {
+            console.log("Productos cargados desde BD:", data);
+            setProductos([...misProducto, ...data]);
+        })
+        .catch(err => console.error('Error trayendo productos:', err));
+}, []);
 
     const misProducto = [
         {
@@ -90,9 +90,9 @@ function Producto({ onAddToCart }) {
                 <h2>Nuestros Productos</h2>
                 <div className="product-grid">
                     
-                    {misProducto.map((producto) => (
-                        <div className="product-card" key={producto.id}>
-                            <img src={producto.imgSrc} alt={producto.alt} />
+                    {productos.map((producto) => (
+                        <div className="product-card" key={producto._id || producto.id}>
+                            <img src={producto.imgSrc || "/imagenes/default.jpg"} alt={producto.alt || producto.nombre} />
                             <div className="product-card-body">
                                 <h3>{producto.nombre}</h3>
                                 <p>{producto.descripcion}</p>

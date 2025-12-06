@@ -28,6 +28,9 @@ function Heder({ cartItems }) {
 
     useEffect(() => {
         const sesionGuardada = localStorage.getItem('sesionActiva');
+        
+
+
         if (sesionGuardada) {
             setUsuarioActivo(JSON.parse(sesionGuardada));
         }
